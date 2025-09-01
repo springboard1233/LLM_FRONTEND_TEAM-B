@@ -1,98 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title> Login </title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Signup Form</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Login & Signup Form</title>
+  <link rel="stylesheet" href="login.css">
+  <head>
+  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
 
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="curved-shape"></div>
-        <div class="curved-shape2"></div>
-        <div class="form-box Login">
-            <h2 class="animation" style="--D:0; --S:21">Login</h2>
-            <form action="#">
-                <div class="input-box animation" style="--D:1; --S:22">
-                    <input type="text" required>
-                    <label for="">Username</label>
-                    <box-icon type='solid' name='user' color="gray"></box-icon>
-                </div>
+  <div class="container">
+    <div class="curved-shape"></div>
+    <div class="curved-shape2"></div>
 
-                <div class="input-box animation" style="--D:2; --S:23">
-                    <input type="password" required>
-                    <label for="">Password</label>
-                    <box-icon name='lock-alt' type='solid' color="gray"></box-icon>
-                </div>
-
-                <div class="input-box animation" style="--D:3; --S:24">
-                    <button class="btn" type="submit">Login</button>
-                </div>
-
-                <div class="regi-link animation" style="--D:4; --S:25">
-                    <p>Don't have an account? <br> <a href="#" class="SignUpLink">Sign Up</a></p>
-                </div>
-            </form>
+    <!-- LOGIN FORM -->
+    <div class="form-box Login">
+      <h2 class="animation">Login</h2>
+      <form id="loginForm">
+        <div class="input-box animation">
+          <input type="text" id="loginEmail" required>
+          <label>Email</label>
+          <box-icon type="solid" name="user" color="gray"></box-icon>
         </div>
 
-        <div class="info-content Login">
-            <h2 class="animation" style="--D:0; --S:20">WELCOME BACK!</h2>
-            <p class="animation" style="--D:1; --S:21">We are happy to have you with us again.</p>
+        <div class="input-box animation">
+          <input type="password" id="loginPassword" required>
+          <label>Password</label>
+           <box-icon name="show-alt" class="toggle-password" data-target="loginPassword"></box-icon>
         </div>
 
-        <div class="form-box Register">
-            <h2 class="animation" style="--li:17; --S:0">Register</h2>
-            <form action="#">
-                <div class="input-box animation" style="--li:18; --S:1">
-                    <input type="text" required>
-                    <label for="">Username</label>
-                    <box-icon type='solid' name='user' color="gray"></box-icon>
-                </div>
-
-                <div class="input-box animation" style="--li:19; --S:2">
-                    <input type="email" required>
-                    <label for="">Email</label>
-                    <box-icon name='envelope' type='solid' color="gray"></box-icon>
-                </div>
-
-                <div class="input-box animation" style="--li:19; --S:3">
-                    <input type="password" required>
-                    <label for="">Password</label>
-                    <box-icon name='lock-alt' type='solid' color="gray"></box-icon>
-                </div>
-
-                <div class="input-box animation" style="--li:20; --S:4">
-                    <button class="btn" type="submit">Register</button>
-                </div>
-
-                <div class="regi-link animation" style="--li:21; --S:5">
-                    <p>Don't have an account? <br> <a href="#" class="SignInLink">Sign In</a></p>
-                </div>
-            </form>
-        </div>
-
-        <div class="info-content Register">
-            <h2 class="animation" style="--li:17; --S:0">WELCOME!</h2>
-         </div>
-
+         <div class="regi-link animation" style="text-align: left" >
+      <a href="#">Forgot Password?</a>
     </div>
 
-    <script src="index.js"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <div class="input-box animation">
+          <button class="btn" type="submit">Login</button>
+        </div>
 
-</body>
-</html>
-  <script  src="./script.js"></script>
+        <div class="regi-link animation">
+          <p>Don't have an account? <a href="#" class="SignUpLink">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
 
+    <div class="info-content Login">
+      <h2 class="animation">WELCOME BACK!</h2>
+      <p class="animation">We are happy to have you with us again.</p>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="form-box Register">
+      <h2 class="animation">Register</h2>
+      <form id="registerForm">
+
+        <div class="input-box animation">
+          <input type="text" id="regfirstname" required>
+          <label>First Name</label>
+          <box-icon type="solid" name="user" color="gray"></box-icon>
+        </div>
+
+         <div class="input-box animation">
+          <input type="text" id="reglastname" required>
+          <label>Last Name</label>
+          <box-icon type="solid" name="user" color="gray"></box-icon>
+        </div>
+
+        <div class="input-box animation">
+          <input type="email" id="regEmail" required>
+          <label>Email</label>
+          <box-icon name="envelope" type="solid" color="gray"></box-icon>
+        </div>
+
+        <div class="input-box animation">
+          <input type="password" id="regPassword" required>
+          <label>Password</label>
+         <box-icon name="show-alt" class="toggle-password" data-target="regPassword"></box-icon>
+        </div>
+
+        <div class="input-box animation">
+          <input type="password" id="regRePassword" required>
+          <label>Re-enter Password</label>
+         <box-icon name="show-alt" class="toggle-password" data-target="regRePassword"></box-icon>
+         
+        </div>
+         <p id="passwordError" class="error-message">Passwords do not match</p>
+
+        <div class="input-box animation">
+          <button class="btn" type="submit">Register</button>
+        </div>
+
+        <div class="regi-link animation">
+          <p>Already have an account? <a href="#" class="SignInLink">Sign In</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="info-content Register">
+      <h2 class="animation">WELCOME!</h2>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
 </body>
+
 </html>
