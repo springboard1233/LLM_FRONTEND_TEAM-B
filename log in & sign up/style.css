@@ -57,6 +57,7 @@ body{
     /* display: none; */
     right: 0;
     padding: 0 60px;
+      
 }
 
 .form-box.Register .animation{
@@ -83,7 +84,7 @@ body{
     position: relative;
     width: 100%;
     height: 50px;
-    margin-top: 25px;
+    margin-top: 5px;
 }
 
 .input-box input{
@@ -96,13 +97,14 @@ body{
     color: #fff;
     font-weight: 600;
     border-bottom: 2px solid #fff;
-    padding-right: 23px;
+    padding: 17px 5px 0 0;
     transition: .5s;
+     line-height: 22px;
 }
 
 .input-box input:focus,
 .input-box input:valid{
-    border-bottom: 2px solid #e46033;
+    border-bottom: 1px solid #e46033;
 }
 
 .input-box label{
@@ -110,14 +112,14 @@ body{
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    font-size: 16px;
+    font-size: 18px;
     color: #fff;
     transition: .5s;
 }
 
 .input-box input:focus ~ label,
 .input-box input:valid ~ label{
-    top: -5px;
+    top: 10px;
     color: #e46033;
 }
 
@@ -144,7 +146,7 @@ body{
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    border: 2px solid #e46033;
+    border: 1px solid #e46033;
     overflow: hidden;
     z-index: 1;    
 }
@@ -282,3 +284,32 @@ body{
     transform: rotate(-11deg) skewY(-41deg);
     transition-delay: 1.2s;
 }
+
+/* Error styling for password mismatch */
+.input-error {
+    border-bottom: 2px solid red !important;
+}
+
+.error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    display: none;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 28px; 
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  fill: #aaa;
+  transition: fill 0.3s;
+}
+
+.toggle-password:hover {
+  fill: #e46033;
+}
+
