@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- PapaParse for CSV -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <!-- 🔹 Topbar -->
+<header class="topbar">
+  <div class="topbar-left">
+    <h2>Transaction Dashboard</h2>
+  </div>
+  <div class="topbar-right">
+    <div class="profile-menu">
+      <img id="dashboardAvatar" 
+           src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
+           alt="Profile" 
+           class="profile-avatar" 
+           onclick="toggleProfileMenu()">
+
+      <!-- Dropdown -->
+      <div class="dropdown" id="profileDropdown">
+        <ul>
+          <li><a href="profile.html">👤 View Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- 🔹 Main Dashboard Layout -->
+  <div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li><a href="#upload">Upload</a></li>
+        <li><a href="#transactions">Transactions</a></li>
+        <li><a href="#analytics">Analytics</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Upload Section -->
+      <section id="upload" class="card">
+        <h3>📂 Upload Transaction Dataset (CSV)</h3>
+        <input type="file" id="fileUpload" accept=".csv">
+        <button onclick="uploadFile()">Upload</button>
+      </section>
+
+      <!-- Transaction Table -->
+      <section id="transactions" class="card">
+        <h3>📋 Transaction Table</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTable"></tbody>
+        </table>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id="analytics" class="card">
+        <h3>📊 Analytics</h3>
+        <div class="stats">
+          <div class="stat-box">
+            <h4>Total Transactions</h4>
+            <p id="totalTx">0</p>
+          </div>
+          <div class="stat-box">
+            <h4>Fraud vs Legitimate</h4>
+            <p id="fraudStats">0 vs 0</p>
+          </div>
+          <div class="stat-box">
+            <h4>Average Transaction</h4>
+            <p id="avgTx">$0</p>
+          </div>
+        </div>
+        <canvas id="fraudChart"></canvas>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
