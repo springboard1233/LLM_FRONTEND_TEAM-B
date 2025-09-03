@@ -84,9 +84,20 @@ loginForm.addEventListener("submit", (e) => {
     loginPassword.value === storedUser.password
   ) {
     alert("🎉 Login successful!");
-    // Redirect to dashboard or another page
     window.location.href = "dashboard.html";
   } else {
     alert("❌ Invalid email or password");
+  }
+});
+//forgetpassword
+document.querySelector(".regi-link a").addEventListener("click", (e) => {
+  e.preventDefault();
+  const email = prompt("Enter your registered email:");
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  
+  if (storedUser && storedUser.email === email) {
+    alert("📧 Password reset link sent to " + email);
+  } else {
+    alert("❌ Email not found.");
   }
 });
