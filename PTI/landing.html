@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraud Detection</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+    body { background: #25252b; color: #fff; line-height: 1.6; overflow-x: hidden; }
+
+    /* Navbar */
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 60px; background: rgba(0,0,0,0.4); border-bottom: 1px solid #e46033;
+      position: fixed; width: 100%; top: 0; z-index: 1000;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 600; color: #e46033; }
+    .logo svg { width: 28px; height: 28px; fill: #e46033; }
+    nav ul { display: flex; gap: 30px; list-style: none; }
+    nav ul li a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
+    nav ul li a:hover { color: #e46033; }
+
+    /* Hero */
+    .hero {
+      height: 100vh; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 80px; background: linear-gradient(to bottom right, #25252b, #1b1b1f); position: relative;
+    }
+    .hero::before {
+      content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(228,96,51,0.25), transparent 70%);
+      top: -100px; left: -100px; z-index: 0;
+    }
+    .hero-content { max-width: 50%; z-index: 1; }
+    .hero h4 { color: #e46033; margin-bottom: 10px; letter-spacing: 1px; }
+    .hero h1 { font-size: 52px; color: #fff; margin-bottom: 20px; }
+    .hero p { max-width: 500px; margin-bottom: 30px; color: #ccc; }
+    .hero .buttons { display: flex; gap: 15px; }
+    .btn { padding: 12px 25px; border-radius: 30px; border: 2px solid #e46033;
+      background: transparent; color: #fff; cursor: pointer; font-size: 16px;
+      font-weight: 600; transition: 0.4s; }
+    .btn:hover { background: #e46033; }
+    .btn.primary { background: #e46033; color: #fff; }
+
+    .hero-illustration { width: 45%; z-index: 1; }
+    .hero-illustration img { width: 100%; }
+
+    /* Features */
+    .features { display: flex; justify-content: space-around; padding: 100px 60px; background: #1b1b1f; text-align: center; }
+    .feature { max-width: 250px; transition: transform 0.3s; }
+    .feature:hover { transform: translateY(-10px); }
+    .feature svg { width: 40px; height: 40px; margin-bottom: 15px; fill: #e46033; }
+    .feature h3 { color: #e46033; margin-bottom: 10px; }
+
+    /* How It Works */
+    .how-it-works { padding: 80px 60px; text-align: center; background: #25252b; }
+    .how-it-works h2 { color: #e46033; margin-bottom: 40px; font-size: 32px; }
+    .steps { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; }
+    .step { max-width: 280px; background: #1b1b1f; padding: 30px; border-radius: 12px; transition: 0.3s; }
+    .step:hover { transform: translateY(-8px); }
+    .step h3 { color: #fff; margin-bottom: 10px; }
+    .step p { color: #aaa; }
+
+    /* Counters */
+    .counters { display: flex; justify-content: space-around; padding: 80px 60px; background: #1b1b1f; text-align: center; }
+    .counter { font-size: 32px; color: #e46033; margin-bottom: 10px; }
+    .counter-label { color: #ccc; }
+
+  
+
+    /* CTA */
+    .cta { background: #e46033; padding: 60px; text-align: center; color: #fff; }
+    .cta h2 { margin-bottom: 20px; }
+    .cta .btn { background: #fff; color: #e46033; border: none; }
+    .cta .btn:hover { background: #25252b; color: #fff; }
+
+    /* Footer */
+    footer { text-align: center; padding: 20px; border-top: 1px solid #e46033; background: #25252b; font-size: 14px; color: #aaa; }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; padding: 100px 20px 50px; }
+      .hero-content, .hero-illustration { max-width: 100%; width: 100%; }
+      .features, .counters { flex-direction: column; gap: 40px; }
+      .steps { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1l9 4v6c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4z"/></svg>
+      Fraud Detection
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="index.html">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      
+      <div class="buttons">
+        <button class="btn primary" onclick="location.href='index.html'">Get Started</button>
+        <button class="btn" onclick="location.href='#features'">Learn More</button>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Fraud Detection Illustration">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="feature">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17a2 2 0 100-4 2 2 0 000 4zm6-7h-1V7a5 5 0 00-10 0v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2zm-3 0H9V7a3 3 0 016 0v3z"/></svg>
+      <h3>Secure</h3>
+      <p>Enterprise-level security ensures your sensitive data is always safe.</p>
+    </div>
+    <div class="feature">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 21h2v-2h-2v2zm-6.31-2.9l1.41 1.41L7.83 18H6.41l-1.72.1zM4 11H2v2h2v-2zm16 0v2h2v-2h-2zm-2.24 8.1L18.59 18h-1.42l1.41 1.41zM12 4a8 8 0 00-8 8h2a6 6 0 1112 0h2a8 8 0 00-8-8z"/></svg>
+      <h3>Fast Detection</h3>
+      <p>Process thousands of transactions in seconds with high accuracy.</p>
+    </div>
+    <div class="feature">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h2v18H3V3zm7 6h2v12h-2V9zm7 4h2v8h-2v-8z"/></svg>
+      <h3>Insights</h3>
+      <p>View fraud ratios, statistics, and transaction history with clarity.</p>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Collect Data</h3>
+        <p>Gather transaction data securely from users and merchants.</p>
+      </div>
+      <div class="step">
+        <h3>2. Analyze in Real-Time</h3>
+        <p>Our system scans each transaction using AI-powered detection models.</p>
+      </div>
+      <div class="step">
+        <h3>3. Detect & Alert</h3>
+        <p>If fraud is detected, alerts are sent instantly to prevent loss.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Counters -->
+  <section class="counters">
+    <div>
+      <div class="counter" data-target="100000">0</div>
+      <div class="counter-label">Transactions Processed</div>
+    </div>
+    <div>
+      <div class="counter" data-target="5000">0</div>
+      <div class="counter-label">Fraud Cases Caught</div>
+    </div>
+    <div>
+      <div class="counter" data-target="98">0</div>
+      <div class="counter-label">Detection Accuracy %</div>
+    </div>
+  </section>
+
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Protect Your Business?</h2>
+    <button class="btn" onclick="location.href='index.html'">Get Started Today</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Fraud Detection Project. All rights reserved.
+  </footer>
+
+  <script>
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(update, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    });
+
+    // Testimonials Auto Slide
+    const testimonials = document.getElementById('testimonial-container');
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % 3;
+      testimonials.style.transform = `translateX(-${index * 100}%)`;
+
+    }, 4000);
+  </script>
+</body>
+</html>
