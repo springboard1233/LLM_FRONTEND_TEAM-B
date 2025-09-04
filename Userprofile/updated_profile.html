@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Profile Card</title>
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #25252b;
+      color: #f9f9f9;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 3rem;
+    }
+    /* Profile Card */
+    .card {
+      border-radius: 1rem;
+      overflow: hidden;
+      /*box-shadow: 0 4px 30px rgba(0,0,0,0.1);*/
+      border: 2px solid #e46033;
+      box-shadow: 0 0 25px #e46033;
+    }
+    .card-header {
+      height: 8rem;
+      background: linear-gradient(to right, #e1945d, #ef4444, #b91c1c);
+      position: relative;
+    }
+    .card-header button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 50%;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: white;
+    }
+    .card-content {
+      padding: 2rem;
+      margin-top: -4rem;
+      text-align: center;
+    }
+    .avatar {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      border: 4px solid rgb(248, 237, 26);
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(248, 248, 37, 0.2);
+
+      margin-top: 60px;
+      /*border: 5px solid #fff;*/
+      /*border-radius: 50%;*/
+      /*box-shadow: 0 4px 15px rgba(0,0,0,0.2); */
+
+    }
+    .name {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-top: 1rem;
+    }
+    .role {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(to right, #8b5cf6, #ec4899);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    .bio {
+      margin-top: 1rem;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .info-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #e46033;
+      box-shadow: 0 0 20px #e46033;
+      border-bottom: 2px solid rgb(223, 26, 26) !important;
+      padding: 1rem;
+      border-radius: 2rem;
+    }
+    .info-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1rem;
+    }
+    .btn {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .btn:hover {
+      background: #f3f4f6;
+    }
+    .btn-danger {
+      border-color: #fecaca;
+      color: #dc2626;
+    }
+    .btn-danger:hover {
+      background: #fef2f2;
+      border-color: #fca5a5;
+    }
+    /* Sidebar */
+    .sidebar {
+      background: #25252b;
+      backdrop-filter: blur(5px);
+      border: 2px solid #e46033;
+      
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 4px 30px rgb(228, 96, 51);
+    }
+    .sidebar h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .sidebar button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      background: none;
+      text-align: left;
+
+      color: #dbeafe;
+
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .sidebar button:hover {
+      background: #7676bc;
+    }
+    .sidebar button.logout {
+      color: #dfd3d3;
+    }
+    .sidebar button.logout:hover {
+      
+      background: #bd3e3e;
+    }
+    /* Layout */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media(min-width: 1024px) {
+      .grid {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      transition: 0.3s;
+    }
+    .modal.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .modal-content {
+      background: #25252b;
+      box-shadow: 0 4px 30px rgb(228, 96, 51);
+      border: 2px solid #e46033;
+      border-radius: 2rem;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-content h2 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+      font-weight: 300;
+    }
+    .modal-content p {
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+      color: #ffffff;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      resize: none;
+      height: 5rem;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .modal-actions button {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ef4444;
+      cursor: pointer;
+      background: #f61515;
+    }
+    .modal-actions .save {
+      background: #2563eb;
+      color: white;
+      border: none;
+    }
+    .modal-actions .save:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Profile Settings</h1>
+    <p class="subtitle">Manage your account and preferences</p>
+
+    <div class="grid">
+      <!-- Main Profile Card -->
+      <div class="card">
+        <div class="card-header">
+          <button id="openEditModalBtnMain"><i class="bx bx-edit-alt"></i></button>
+        </div>
+        <div class="card-content">
+          <!-- image -->
+          <img id="profileAvatar" class="avatar" src="https://i.pravatar.cc/150?u=a042581f4e29026704d"  >
+          <h2 id="profileFullName" class="name">Alex Doe</h2>
+          <span id="profileRole" class="role"><i class="bx bx-crown"></i> Admin</span>
+          <p id="profileBio" class="bio">Digital craftsman building beautiful interfaces & experiences. Based in the cloud.</p>
+          <div class="info-grid">
+            <div class="info-box">
+              <div class="info-icon" style="background:#dbeafe;color:#2563eb"><i class="bx bx-envelope"></i></div>
+              <div>
+                <p style="font-size:0.8rem;color:#6b7280">Email</p>
+                <p id="profileEmail" style="font-weight:500">alex.doe@example.com</p>
+              </div>
+            </div>
+            <div class="info-box">
+              <div class="info-icon" style="background:#dcfce7;color:#16a34a"><i class="bx bx-calendar"></i></div>
+              <div>
+                <p style="font-size:0.8rem;color:#6b7280">Member since</p>
+                <p id="profileMemberSince" style="font-weight:500">May 2023</p>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="openPasswordModalBtn" class="btn"><i class="bx bx-shield"></i> Change Password</button>
+            <button id="logoutBtn" class="btn btn-danger"><i class="bx bx-log-out"></i> Sign Out</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <h3><i class="bx bx-user"></i> Account Overview</h3>
+        <button id="openEditModalBtnSidebar"><i class="bx bx-edit-alt" style="color:#2563eb"></i> Edit Profile</button>
+        <button id="openPasswordModalBtnSidebar"><i class="bx bx-shield" style="color:#16a34a"></i> Change Password</button>
+        <button id="logoutBtnSidebar" class="logout"><i class="bx bx-log-out"></i> Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="editProfileModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Edit Profile</h2>
+      <p>Update your personal information</p>
+      <div style="text-align:center;margin-bottom:1rem;">
+        <img id="editAvatarPreview" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" class="avatar" style="width:6rem;height:6rem;border:3px solid #f3f4f6">
+        <div style="margin-top:0.5rem;">
+          <input type="file" accept="image/*" id="avatarUploadInput" hidden>
+          <label for="avatarUploadInput" style="cursor:pointer;font-size:0.9rem;padding:0.5rem 1rem;border:1px solid #d1d5db;border-radius:0.5rem;display:inline-flex;align-items:center;gap:0.5rem;">
+            <i class="bx bx-camera"></i> Change Avatar
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input id="editFullName" type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input id="editRole" type="text" placeholder="e.g., Admin, User">
+      </div>
+      <div class="form-group">
+        <label>Bio</label>
+        <textarea id="editBio" placeholder="Tell us about yourself..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button id="closeEditModalBtn"><i class="bx bx-x"></i> Cancel</button>
+        <button id="saveProfileBtn" class="save"><i class="bx bx-save"></i> Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div id="changePasswordModal" class="modal hidden">
+    <div class="modal-content" style="max-width:400px">
+      <h2 style="font-weight:600">Change Password</h2>
+      <p>Ensure your account stays secure</p>
+      <div class="form-group">
+        <label>Current Password</label>
+        <input id="currentPassword" type="password">
+      </div>
+      <div class="form-group">
+        <label>New Password</label>
+        <input id="newPassword" type="password">
+      </div>
+      <div class="form-group">
+        <label>Confirm New Password</label>
+        <input id="confirmPassword" type="password">
+      </div>
+      <div class="modal-actions">
+        <button id="closePasswordModalBtn"><i class="bx bx-x"></i> Cancel</button>
+        <button class="save"><i class="bx bx-shield"></i> Change Password</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const profileElements = {
+        avatar: document.getElementById('profileAvatar'),
+        fullName: document.getElementById('profileFullName'),
+        role: document.getElementById('profileRole'),
+        bio: document.getElementById('profileBio'),
+        email: document.getElementById('profileEmail'),
+        memberSince: document.getElementById('profileMemberSince')
+      };
+
+      const editModal = document.getElementById('editProfileModal');
+      const passwordModal = document.getElementById('changePasswordModal');
+
+      const editForm = {
+        avatarPreview: document.getElementById('editAvatarPreview'),
+        avatarUploadInput: document.getElementById('avatarUploadInput'),
+        fullName: document.getElementById('editFullName'),
+        role: document.getElementById('editRole'),
+        bio: document.getElementById('editBio')
+      };
+
+      let currentUser = {
+        avatar_url: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+        full_name: 'Alex Doe',
+        role: 'Admin',
+        bio: 'Digital craftsman building beautiful interfaces & experiences. Based in the cloud.',
+        email: 'alex.doe@example.com',
+        member_since: 'May 2023'
+      };
+
+      const renderProfile = (user) => {
+        profileElements.avatar.src = user.avatar_url;
+        profileElements.fullName.textContent = user.full_name;
+        profileElements.role.innerHTML = `<i class="bx bx-crown"></i> ${user.role}`;
+        profileElements.bio.textContent = user.bio;
+        profileElements.email.textContent = user.email;
+        profileElements.memberSince.textContent = user.member_since;
+      };
+
+      const openEditModal = () => {
+        editForm.avatarPreview.src = currentUser.avatar_url;
+        editForm.fullName.value = currentUser.full_name;
+        editForm.role.value = currentUser.role;
+        editForm.bio.value = currentUser.bio;
+        editModal.classList.remove('hidden');
+      };
+      const closeEditModal = () => editModal.classList.add('hidden');
+      const openPasswordModal = () => passwordModal.classList.remove('hidden');
+      const closePasswordModal = () => passwordModal.classList.add('hidden');
+
+      const saveProfile = () => {
+        const newProfile = {
+          ...currentUser,
+          avatar_url: editForm.avatarPreview.src,
+          full_name: editForm.fullName.value,
+          role: editForm.role.value,
+          bio: editForm.bio.value,
+        };
+        localStorage.setItem('userProfile', JSON.stringify(newProfile));
+        alert('Profile saved to localStorage!');
+        currentUser = newProfile;
+        renderProfile(currentUser);
+        closeEditModal();
+      };
+
+      const loadProfile = () => {
+        const savedProfile = localStorage.getItem('userProfile');
+        if (savedProfile) currentUser = JSON.parse(savedProfile);
+        renderProfile(currentUser);
+      };
+
+      // Event Listeners
+      document.getElementById('openEditModalBtnMain').addEventListener('click', openEditModal);
+      document.getElementById('openEditModalBtnSidebar').addEventListener('click', openEditModal);
+      document.getElementById('closeEditModalBtn').addEventListener('click', closeEditModal);
+      document.getElementById('openPasswordModalBtn').addEventListener('click', openPasswordModal);
+      document.getElementById('openPasswordModalBtnSidebar').addEventListener('click', openPasswordModal);
+      document.getElementById('closePasswordModalBtn').addEventListener('click', closePasswordModal);
+      document.getElementById('saveProfileBtn').addEventListener('click', saveProfile);
+
+      document.getElementById('logoutBtn').addEventListener('click', () => alert('Logout clicked! (Stub)'));
+      document.getElementById('logoutBtnSidebar').addEventListener('click', () => alert('Logout clicked! (Stub)'));
+
+      editForm.avatarUploadInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => editForm.avatarPreview.src = e.target.result;
+          reader.readAsDataURL(file);
+        }
+      });
+
+      loadProfile();
+    });
+  </script>
+</body>
+</html>
