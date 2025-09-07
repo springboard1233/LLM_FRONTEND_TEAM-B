@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System - User Profile</title>
+    <meta name="description" content="Advanced AI-powered fraud detection system - Secure transactions, smarter future">
+    <meta name="author" content="CyberShield Team">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Main Content Container -->
+        <div class="container">
+            <div class="main-grid">
+                
+                <!-- Left Panel - Welcome Section -->
+                <div class="welcome-panel">
+                    <div class="welcome-card">
+                        <div class="welcome-content">
+                            <div class="shield-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            
+                            <div class="welcome-text">
+                                <h1 class="welcome-title">
+                                    Secure Transactions, 
+                                    <span class="gradient-text">Smarter Future!</span>
+                                </h1>
+                                
+                                <p class="welcome-description">
+                                    Advanced AI-powered fraud detection system protecting millions of transactions worldwide. 
+                                    Your security is our priority in the digital age.
+                                </p>
+                            </div>
+
+                            <!-- Stats Section -->
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">99.9%</div>
+                                    <div class="stat-label">Accuracy</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">24/7</div>
+                                    <div class="stat-label">Monitoring</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">5M+</div>
+                                    <div class="stat-label">Protected</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - User Profile Section -->
+                <div class="profile-section">
+                    
+                    <!-- Profile Card -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h2 class="card-title">
+                                <i data-lucide="user"></i>
+                                User Profile
+                            </h2>
+                        </div>
+                        
+                        <div class="card-content">
+                            <!-- Profile Picture Section -->
+                            <div class="profile-picture-section">
+                                <div class="profile-picture">
+                                    <i data-lucide="user"></i>
+                                    <button class="upload-button" type="button">
+                                        <i data-lucide="camera"></i>
+                                    </button>
+                                </div>
+                                <p class="upload-text">Click to upload profile picture</p>
+                            </div>
+
+                            <!-- Profile Form Fields -->
+                            <form class="profile-form" id="profileForm">
+                                <div class="form-group">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input 
+                                        type="text" 
+                                        id="fullName" 
+                                        name="fullName" 
+                                        value="Sarah Johnson" 
+                                        class="form-input"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
+                                        <i data-lucide="mail"></i>
+                                        Email ID
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        value="sarah.johnson@frauddetect.com" 
+                                        class="form-input"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="role" class="form-label">
+                                        <i data-lucide="users"></i>
+                                        Role
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="role" 
+                                        name="role" 
+                                        value="Senior Fraud Analyst" 
+                                        class="form-input"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="userId" class="form-label">
+                                        <i data-lucide="id-card"></i>
+                                        User ID / Employee ID
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="userId" 
+                                        name="userId" 
+                                        value="FD-2024-1547" 
+                                        class="form-input"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contactNumber" class="form-label">
+                                        <i data-lucide="phone"></i>
+                                        Contact Number
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        id="contactNumber" 
+                                        name="contactNumber" 
+                                        value="+1 (555) 0123-4567" 
+                                        class="form-input"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i data-lucide="shield"></i>
+                                        Risk Score
+                                    </label>
+                                    <div class="risk-score-container">
+                                        <span class="risk-badge risk-low">Low Risk</span>
+                                    </div>
+                                </div>
+
+                                <!-- Save Button -->
+                                <button type="submit" class="save-button">
+                                    <i data-lucide="lock"></i>
+                                    Save Profile
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Security Information Section -->
+                    <div class="security-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i data-lucide="alert-triangle"></i>
+                                Security Information
+                            </h3>
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i data-lucide="map-pin"></i>
+                                    <span class="security-label">Last Login Location</span>
+                                </div>
+                                <span class="security-value">New York, USA</span>
+                            </div>
+
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i data-lucide="clock"></i>
+                                    <span class="security-label">Last Active</span>
+                                </div>
+                                <span class="security-value">2 minutes ago</span>
+                            </div>
+
+                            <div class="alert-container">
+                                <div class="alert-content">
+                                    <i data-lucide="alert-triangle"></i>
+                                    <div class="alert-text">
+                                        <div class="alert-title">Suspicious Activity Alert</div>
+                                        <div class="alert-description">
+                                            No suspicious activities detected in the last 30 days.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p class="footer-text">
+                        Developed by <span class="team-name">CyberShield Team</span> | Internship Project
+                    </p>
+                    <p class="copyright">
+                        © 2024 Fraud Detection System. All rights reserved.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Form submission handler
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const profileData = {};
+            for (let [key, value] of formData.entries()) {
+                profileData[key] = value;
+            }
+            
+            console.log('Profile saved:', profileData);
+            
+            // Show success message (you can customize this)
+            alert('Profile updated successfully!');
+        });
+
+        // Upload button functionality
+        document.querySelector('.upload-button').addEventListener('click', function() {
+            // Create hidden file input
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.style.display = 'none';
+            
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Here you could update the profile picture
+                        console.log('Image selected:', file.name);
+                        alert('Image uploaded: ' + file.name);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            document.body.appendChild(fileInput);
+            fileInput.click();
+            document.body.removeChild(fileInput);
+        });
+    </script>
+</body>
+</html>
