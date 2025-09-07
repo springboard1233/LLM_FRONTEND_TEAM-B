@@ -1,0 +1,563 @@
+:root {
+    /* Colors - Dark Theme with Orange Accents */
+    --background: hsl(220, 13%, 8%);
+    --foreground: hsl(0, 0%, 95%);
+    
+    --card: hsl(220, 13%, 12%);
+    --card-foreground: hsl(0, 0%, 95%);
+    
+    --primary: hsl(20, 90%, 58%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --primary-glow: hsl(20, 90%, 65%);
+    
+    --secondary: hsl(220, 13%, 18%);
+    --secondary-foreground: hsl(0, 0%, 85%);
+    
+    --muted: hsl(220, 13%, 15%);
+    --muted-foreground: hsl(0, 0%, 60%);
+    
+    --accent: hsl(25, 95%, 55%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    
+    --success: hsl(142, 71%, 45%);
+    --warning: hsl(45, 93%, 58%);
+    --destructive: hsl(0, 72%, 51%);
+    
+    --risk-low: hsl(142, 71%, 45%);
+    --risk-medium: hsl(45, 93%, 58%);
+    --risk-high: hsl(0, 72%, 51%);
+    
+    --border: hsl(220, 13%, 25%);
+    --input: hsl(220, 13%, 20%);
+    --ring: hsl(20, 90%, 58%);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+    --gradient-card: linear-gradient(145deg, var(--card), hsl(220, 13%, 10%));
+    --gradient-glow: linear-gradient(135deg, hsla(20, 90%, 58%, 0.3), hsla(25, 95%, 55%, 0.1));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsla(20, 90%, 58%, 0.3);
+    --shadow-card: 0 8px 32px hsla(220, 13%, 5%, 0.8);
+    --shadow-input: inset 0 2px 4px hsla(220, 13%, 5%, 0.6);
+    
+    /* Border radius */
+    --radius: 0.75rem;
+}
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container and Layout */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}
+
+/* Welcome Panel */
+.welcome-panel {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-card {
+    width: 100%;
+    background: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+}
+
+.welcome-content {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .welcome-content {
+        padding: 4rem 3rem;
+        text-align: left;
+    }
+}
+
+.shield-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .shield-icon {
+        justify-content: flex-start;
+    }
+}
+
+.shield-icon i {
+    width: 3rem;
+    height: 3rem;
+    padding: 1rem;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    color: white;
+    filter: drop-shadow(var(--shadow-glow));
+}
+
+.welcome-text {
+    margin-bottom: 2rem;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+@media (min-width: 1024px) {
+    .welcome-title {
+        font-size: 3rem;
+    }
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome-description {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    line-height: 1.7;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-top: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-card,
+.security-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.5rem 1.5rem 1rem;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.card-title i {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+}
+
+.card-content {
+    padding: 0 1.5rem 1.5rem;
+}
+
+/* Profile Picture */
+.profile-picture-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    background: var(--gradient-glow);
+    border: 2px solid hsla(20, 90%, 58%, 0.2);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    filter: drop-shadow(var(--shadow-glow));
+}
+
+.profile-picture i {
+    width: 3rem;
+    height: 3rem;
+    color: var(--muted-foreground);
+}
+
+.upload-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px hsla(20, 90%, 58%, 0.4);
+}
+
+.upload-button:hover {
+    background: var(--primary-glow);
+    transform: scale(1.1);
+}
+
+.upload-button i {
+    width: 1rem;
+    height: 1rem;
+    color: white;
+}
+
+.upload-text {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-align: center;
+}
+
+/* Form Styles */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--foreground);
+    font-size: 0.875rem;
+}
+
+.form-label i {
+    width: 1rem;
+    height: 1rem;
+}
+
+.form-input {
+    padding: 0.75rem 1rem;
+    background-color: var(--input);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-input);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px hsla(20, 90%, 58%, 0.2);
+}
+
+.form-input:hover {
+    border-color: var(--primary);
+}
+
+/* Risk Score */
+.risk-score-container {
+    padding: 0.75rem 1rem;
+    background-color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+}
+
+.risk-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: calc(var(--radius) - 4px);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.risk-low {
+    background-color: var(--risk-low);
+    color: white;
+}
+
+.risk-medium {
+    background-color: var(--risk-medium);
+    color: white;
+}
+
+.risk-high {
+    background-color: var(--risk-high);
+    color: white;
+}
+
+/* Save Button */
+.save-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--radius);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.save-button:hover {
+    filter: drop-shadow(var(--shadow-glow));
+    transform: translateY(-1px);
+}
+
+.save-button i {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Security Information */
+.security-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+    margin-bottom: 1rem;
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.security-info i {
+    width: 1rem;
+    height: 1rem;
+    color: var(--primary);
+}
+
+.security-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.security-value {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+.alert-container {
+    padding: 0.75rem 1rem;
+    background-color: hsla(45, 93%, 58%, 0.1);
+    border: 1px solid hsla(45, 93%, 58%, 0.2);
+    border-radius: calc(var(--radius) - 2px);
+}
+
+.alert-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.alert-content i {
+    width: 1rem;
+    height: 1rem;
+    color: var(--warning);
+    margin-top: 0.125rem;
+}
+
+.alert-text {
+    flex: 1;
+}
+
+.alert-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--warning);
+    margin-bottom: 0.25rem;
+}
+
+.alert-description {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.team-name {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-glow);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .welcome-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .card-content {
+        padding: 0 1rem 1.5rem;
+    }
+    
+    .card-header {
+        padding: 1rem 1rem 0.5rem;
+    }
+    
+    .stats-grid {
+        gap: 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.75rem;
+    }
+    
+    .welcome-description {
+        font-size: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .save-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}
